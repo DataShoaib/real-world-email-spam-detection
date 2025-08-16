@@ -9,12 +9,6 @@ from typing import Dict
 import mlflow
 import dagshub
 
-dagshub.init(repo_owner='DataShoaib', repo_name='practicing-dvc-pipeline-and-versioning', mlflow=True)
-
-import mlflow
-with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
 
 def load_test_dataset(path:str)->tuple[np.ndarray,np.ndarray]:
     test_data=pd.read_csv(path)
@@ -27,9 +21,11 @@ def load_model(path:str)->BaseEstimator:
         model=pickle.load(f)
     return model
 
+
 def prediction(model:BaseEstimator,x_test:np.ndarray)->np.ndarray:
     y_pred=model.predict(x_test)
     return y_pred
+
 
 def evaluation(y_pred:np.ndarray,y_test:np.ndarray)->tuple[float,float]:
     accuracy=accuracy_score(y_test,y_pred)
@@ -42,6 +38,7 @@ def save_metrics(metrics:Dict[str,float],path:str)->None:
     os.makedirs(os.path.dirname(path),exist_ok=True)
     with open(path,"w") as f:
         json.dump(metrics,f,indent=4)
+        
 
 def main():
     x_test,y_test=load_test_dataset("data/processed/test_tfidf.csv")
