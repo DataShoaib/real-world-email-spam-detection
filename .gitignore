@@ -1,36 +1,42 @@
+# ==========================
 # Virtual environments
-myenv/
+# ==========================
 venv/
 .venv/
 env/
 
+# ==========================
 # Python build/cache
+# ==========================
 __pycache__/
 *.py[cod]
 *.egg-info/
 *.egg
 
+# ==========================
 # Jupyter
+# ==========================
 .ipynb_checkpoints/
 
-# Env/Secrets
+# ==========================
+# Env / Secrets
+# ==========================
 .env
 *.env
 
-# IDE/OS
+# ==========================
+# IDE / OS
+# ==========================
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# DVC (cache/tmp local rahna chahiye)
+# ==========================
+# DVC
+# ==========================
 .dvc/cache/
 .dvc/tmp/
 
-# (Optional) Large data folders - DVC se track karoge to ignore rakho
-data/**
-!data/.gitkeep
-!data/raw/.gitkeep
-!data/interim/.gitkeep
-!data/processed/.gitkeep
-!data/external/.gitkeep
+dvc add data/raw/spam.csv
+
