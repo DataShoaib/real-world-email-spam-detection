@@ -1,4 +1,4 @@
 [core]
-    remote = myremote
-['remote "myremote"']
-    url = C:\Temp
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/DataShoaib/Email-Spam-Detection.dvc

@@ -2,6 +2,7 @@
 # Virtual environments
 # ==========================
 venv/
+myenv/
 .venv/
 env/
 
@@ -38,5 +39,6 @@ Thumbs.db
 .dvc/cache/
 .dvc/tmp/
 
-dvc add data/raw/spam.csv
+data/
+!data/.dvc
 
